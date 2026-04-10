@@ -155,6 +155,10 @@ int IntList::count() const {
 //Assignment operator should copy the list from the source
 //to this list, deleting/replacing any existing nodes
 IntList& IntList::operator=(const IntList& source){
+    if (this == &source){ // if the assignment is equal to itself
+        return *this;
+    }
+
     while(head != nullptr){ // loops through every node
         Node* temp = head; // creates temp var for head
         head = head -> next; // moves head to next node before deletion
